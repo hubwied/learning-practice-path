@@ -5,3 +5,15 @@ konsolidacja danych
 odwolania do nazw
 sortowanie 
 sortowanie po listach  
+ciagi
+sortowanie w poziomie
+filtrowanie tekstu, liczb, dat
+filtry niestandardowe
+liczba porządkowa przy filtrowaniu 
+liczba porządkowa przy filtrowaniu
+dwa filtry 
+filtry zaawansowane jedno, dwa kryteria, 
+symbole wieloznaczne 
+formuła pomocnicza
+co n-ty wiersz
+wyciąganie elementów 
