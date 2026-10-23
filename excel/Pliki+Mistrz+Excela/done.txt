@@ -17,3 +17,5 @@ symbole wieloznaczne
 formuła pomocnicza
 co n-ty wiersz
 wyciąganie elementów 
+funckje bazodanowe
+tabele
