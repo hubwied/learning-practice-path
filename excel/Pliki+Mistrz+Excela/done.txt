@@ -19,3 +19,8 @@ co n-ty wiersz
 wyciąganie elementów 
 funckje bazodanowe
 tabele
+dynamiczny wykres
+nomenkulatura tabel
+odwołania do tabel
+dynamiczne zakresy w tabelach
+fragmentator w tabeli
