@@ -24,3 +24,7 @@ nomenkulatura tabel
 odwołania do tabel
 dynamiczne zakresy w tabelach
 fragmentator w tabeli
+operacje na tekście 
+tekst jako kolumny
+flash fill
+funkcja tekst
