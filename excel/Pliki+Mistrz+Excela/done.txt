@@ -28,3 +28,5 @@ operacje na tekście
 tekst jako kolumny
 flash fill
 funkcja tekst
+formatowanie liczbowe i niestandardowe
+formatowanie dat, czasu
