@@ -31,3 +31,5 @@ funkcja tekst
 formatowanie liczbowe i niestandardowe
 formatowanie dat, czasugit
 formatowanie warunkowe
+własne formuły w filtrowaniu warunkowym
+tabele przestawne podstawy 
