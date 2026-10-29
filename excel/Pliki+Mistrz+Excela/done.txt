@@ -32,4 +32,14 @@ formatowanie liczbowe i niestandardowe
 formatowanie dat, czasugit
 formatowanie warunkowe
 własne formuły w filtrowaniu warunkowym
+===TABELE PRZESTAWNE===
 tabele przestawne podstawy 
+grupowanie
+filtorwanie i sortowanie
+pokaz podsumowanie wartosci jako 
+wykres 
+filtr raportu
+fragmentator i os czasu 
+element obliczoeniowy 
+konsolidacja danych 
+model danych 
