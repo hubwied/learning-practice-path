@@ -43,3 +43,13 @@ fragmentator i os czasu
 element obliczoeniowy 
 konsolidacja danych 
 model danych 
+===SPRAWDZANIE POPRAWNOŚCI DANYCH===
+nakładanie poprawności danych
+lista rozwijana
+formnuła w poprawnościach 
+lsita zależna
+===NAZWY W EXCEL===
+nazwy zakresów 
+nazwy stałych
+nazwy formuł 
+funkcje dizeń miesiąc rok 
