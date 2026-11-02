@@ -53,3 +53,13 @@ nazwy zakresów
 nazwy stałych
 nazwy formuł 
 funkcje dizeń miesiąc rok 
+===WYKRESY=== 
+podstawy wykresów 
+motywy, dodawanie i zmiana elemnetów 
+tytuł z komórki 
+zmiana typu wykresu 
+wykres słupkowy, kołowy, historgram, liniowy 
+funkcja część 
+wykresy kombi 
+nakładanie się serii 
+wykresy przebiegu w czasie 
