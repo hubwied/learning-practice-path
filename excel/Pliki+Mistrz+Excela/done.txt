@@ -63,3 +63,6 @@ funkcja część
 wykresy kombi 
 nakładanie się serii 
 wykresy przebiegu w czasie 
+===GRUPOWANIE DANYCH I SUMY CZĘSCIOWE===
+grupowanie kolumn i wierszy
+polecenie suma czesciowa 
