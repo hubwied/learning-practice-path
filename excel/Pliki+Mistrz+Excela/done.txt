@@ -66,3 +66,12 @@ wykresy przebiegu w czasie
 ===GRUPOWANIE DANYCH I SUMY CZĘSCIOWE===
 grupowanie kolumn i wierszy
 polecenie suma czesciowa 
+===FUNKCJE I OPERACJE LOGICZNE=== 
+wartosci lgoczne 
+funkcja oraz
+funkca lub 
+funckja jezeli 
+porownywanie tekstu 
+rodzina funkcji suma jezeli 
+rodzina funkcji suma warunkow
+max jezeli 
