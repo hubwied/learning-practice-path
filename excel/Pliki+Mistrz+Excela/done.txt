@@ -75,3 +75,8 @@ porownywanie tekstu
 rodzina funkcji suma jezeli 
 rodzina funkcji suma warunkow
 max jezeli 
+===Analiza błędów=== 
+rodzaje błędów 
+naprawianie niepoprawnych formuł i danych
+czarne odwołania do komórek 
+opcja sprawdzania błedów
