@@ -80,3 +80,13 @@ rodzaje błędów
 naprawianie niepoprawnych formuł i danych
 czarne odwołania do komórek 
 opcja sprawdzania błedów
+===wyszkuiwanie danych===
+naprawianie bledow w wyszukaj pionowo 
+liczby traktowane jako tekst
+formularz zamówienia z wyszukiwaniem i naprawianiem błędów 
+wyszukaj pionowo vs jezeli 
+wyszukiwanie w poziomie 
+wyszukiwanie po 2 krytetiach 
+wyszukiwanie z wielu kolumn 
+wyszukiwanie 2d 
+funkcja podaj pozycje  
