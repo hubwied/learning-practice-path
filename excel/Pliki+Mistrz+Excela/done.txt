@@ -94,3 +94,9 @@ funkcja podaj pozycje
 ochrona arkusza, blokowanie danych 
 ochrona skoroszytu 
 zabezpieczanie pliku i wicej opcji ochrony 
+=== POBIERANIE I ANALIZA WARUNKWOA DANYCH === 
+pobieranie danych z txt,excela,worda,acessa,pdf, interentu 
+model danych w tabeli przestawenej 
+menadżer scenariuszy 
+szukaj wyniku 
+tabela danych 
