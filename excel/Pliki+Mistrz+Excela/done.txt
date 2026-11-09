@@ -90,3 +90,7 @@ wyszukiwanie po 2 krytetiach
 wyszukiwanie z wielu kolumn 
 wyszukiwanie 2d 
 funkcja podaj pozycje  
+=== OCHRONA DANYCH === 
+ochrona arkusza, blokowanie danych 
+ochrona skoroszytu 
+zabezpieczanie pliku i wicej opcji ochrony 
