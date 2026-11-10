@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Focus Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-mode="focus">
+    <main class="app">
+      <header class="header">
+        <p class="eyebrow">Focus Timer</p>
+        <h1>Zostań przy jednej rzeczy</h1>
+      </header>
+
+      <div class="modes" role="group" aria-label="Wybór trybu">
+        <button type="button" class="mode is-active" data-mode="focus" aria-pressed="true">
+          <span class="mode-name">Focus</span>
+          <span class="mode-length">25 min</span>
+        </button>
+        <button type="button" class="mode" data-mode="break" aria-pressed="false">
+          <span class="mode-name">Break</span>
+          <span class="mode-length">5 min</span>
+        </button>
+      </div>
+
+      <section class="clock" aria-live="polite" aria-atomic="true">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+          <circle class="ring-progress" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="clock-readout">
+          <p id="time" class="time">25:00</p>
+          <p id="mode-label" class="mode-label">Tryb Focus</p>
+        </div>
+      </section>
+
+      <p id="status" class="status">Gotowy do startu</p>
+
+      <div class="controls">
+        <button type="button" id="start" class="btn btn-primary">Start</button>
+        <button type="button" id="pause" class="btn" disabled>Pauza</button>
+        <button type="button" id="reset" class="btn">Reset</button>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
