@@ -100,3 +100,7 @@ model danych w tabeli przestawenej
 menadżer scenariuszy 
 szukaj wyniku 
 tabela danych 
+=== MAKRA === 
+nagrywanie makra 
+kod makra 
+makra z formatowania, tworzenia raportu 
