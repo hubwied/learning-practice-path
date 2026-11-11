@@ -284,6 +284,27 @@ button:disabled {
   padding: 18px;
 }
 
+.favorite-button {
+  margin-top: 14px;
+  border: 0;
+  border-radius: 8px;
+  min-height: 38px;
+  padding: 8px 12px;
+  color: var(--blue);
+  background: var(--blue-soft);
+  font-weight: 800;
+}
+
+.favorite-button.active {
+  color: #ffffff;
+  background: var(--blue);
+}
+
+.favorite-button:hover {
+  background: var(--blue-dark);
+  color: #ffffff;
+}
+
 .service-card {
   display: flex;
   align-items: flex-start;
