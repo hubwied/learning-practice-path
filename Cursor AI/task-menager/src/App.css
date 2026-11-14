@@ -1,0 +1,288 @@
+.app {
+  width: min(880px, 100%);
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+
+.counts {
+  margin: 6px 0 0;
+  color: #526071;
+}
+
+.panel {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #d9e1ea;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(28, 39, 54, 0.04);
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.notice {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.notice p {
+  margin: 0;
+}
+
+.notice-error {
+  background: #fff1f0;
+  color: #9f1d1d;
+}
+
+.notice-info {
+  background: #eef4ff;
+  color: #1d3f8a;
+}
+
+.inline-form,
+.task-form,
+.filters,
+.form-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.inline-controls,
+.form-actions,
+.category-actions,
+.task-actions,
+.confirm,
+.badges,
+.task-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.inline-controls input {
+  flex: 1 1 12rem;
+  width: auto;
+  min-width: 0;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.category-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.task {
+  justify-content: space-between;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3d4b5c;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #c5d0dc;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #2457d6;
+  color: #fff;
+}
+
+button.secondary {
+  background: #e7edf5;
+  color: #1f2430;
+}
+
+button.danger {
+  background: #c53636;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid #2457d6;
+  outline-offset: 2px;
+}
+
+.field-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.85rem;
+}
+
+.hint,
+.empty {
+  margin: 0 0 8px;
+  color: #526071;
+}
+
+.form-grid,
+.filters {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.filter-search {
+  grid-column: 1 / -1;
+}
+
+.task-list {
+  display: grid;
+  gap: 10px;
+}
+
+.task {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e1e7ef;
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+
+.task-done .task-title {
+  color: #7b8794;
+  text-decoration: line-through;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.status-field {
+  display: grid;
+  gap: 4px;
+  min-width: 150px;
+}
+
+.task-description {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #3d4b5c;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: #eef2f6;
+}
+
+.priority-low {
+  background: #e5f6ea;
+  color: #1f7a3a;
+}
+
+.priority-medium {
+  background: #fff3d6;
+  color: #8a5a00;
+}
+
+.priority-high {
+  background: #ffe1e1;
+  color: #a61b1b;
+}
+
+.due-overdue {
+  background: #fff1f0;
+  color: #9f1d1d;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .form-grid,
+  .filters,
+  .category-row,
+  .category-actions,
+  .task-top,
+  .task-actions {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .category-actions button {
+    width: 100%;
+  }
+
+  .filter-search {
+    grid-column: auto;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form textarea,
+  .filters input,
+  .filters select,
+  .task select {
+    width: 100%;
+  }
+
+  .inline-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .inline-controls input {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .inline-controls button {
+    width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
