@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { PRIORITY_LABEL, STATUS_LABEL, STATUSES, formatDueDate, isOverdue, isStatus } from "../domain.ts";
+import { PRIORITY_LABEL, formatDueDate, isOverdue } from "../domain.ts";
 import type { Status, Task } from "../types.ts";
+import { STATUS_CHOICES } from "../choices.ts";
+import { ChoiceSelect } from "./ChoiceSelect.tsx";
 
 type TaskItemProps = {
   task: Task;
@@ -15,27 +17,19 @@ type TaskItemProps = {
 export function TaskItem({ task, categoryName, today, isEditing, onStatus, onEdit, onDelete }: TaskItemProps) {
   const [confirming, setConfirming] = useState(false);
   const overdue = isOverdue(task, today);
-
   return (
     <article className={`task${task.status === "done" ? " task-done" : ""}`}>
       <div className="task-top">
-        <label className="status-field" htmlFor={`status-${task.id}`}>
-          Status
-          <select
-            id={`status-${task.id}`}
-            value={task.status}
-            disabled={isEditing}
-            onChange={(event) => {
-              if (isStatus(event.target.value)) onStatus(task.id, event.target.value);
-            }}
-          >
-            {STATUSES.map((status) => (
-              <option key={status} value={status}>
-                {STATUS_LABEL[status]}
-              </option>
-            ))}
-          </select>
-        </label>
+        <ChoiceSelect
+          id={`status-${task.id}`}
+          label="Status"
+          labelClassName="status-field"
+          wrapLabel
+          value={task.status}
+          options={STATUS_CHOICES}
+          disabled={isEditing}
+          onChange={(status) => onStatus(task.id, status)}
+        />
         <h3 className="task-title">{task.title}</h3>
       </div>
       {task.description ? <p className="task-description">{task.description}</p> : null}

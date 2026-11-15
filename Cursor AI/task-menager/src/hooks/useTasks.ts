@@ -68,23 +68,37 @@ export function useTasks() {
     if (!result.ok) setNotice(SAVE_NOTICE);
   }
 
+  function commitCategories(next: Category[]) {
+    setCategories(next);
+    persist(next, tasks);
+  }
+
+  function commitTasks(next: Task[]) {
+    setTasks(next);
+    persist(categories, next);
+  }
+
+  function applyDraft(
+    draft: TaskDraft,
+  ): { ok: false; errors: FieldErrors } | { ok: true; fields: Omit<Task, "id" | "createdAt"> } {
+    const errors = validateTask(draft, categories);
+    if (Object.keys(errors).length > 0) return { ok: false, errors };
+    return { ok: true, fields: taskFieldsFromDraft(draft) };
+  }
+
   function addCategory(name: string): string | null {
     const error = validateCategoryName(name, categories);
     if (error) return error;
-    const next = [...categories, { id: crypto.randomUUID(), name: name.trim() }];
-    setCategories(next);
-    persist(next, tasks);
+    commitCategories([...categories, { id: crypto.randomUUID(), name: name.trim() }]);
     return null;
   }
 
   function renameCategory(id: string, name: string): string | null {
     const error = validateCategoryName(name, categories, id);
     if (error) return error;
-    const next = categories.map((category) =>
-      category.id === id ? { ...category, name: name.trim() } : category,
+    commitCategories(
+      categories.map((category) => (category.id === id ? { ...category, name: name.trim() } : category)),
     );
-    setCategories(next);
-    persist(next, tasks);
     return null;
   }
 
@@ -93,48 +107,34 @@ export function useTasks() {
       setNotice(CATEGORY_IN_USE_NOTICE);
       return;
     }
-    const next = categories.filter((category) => category.id !== id);
-    setCategories(next);
+    commitCategories(categories.filter((category) => category.id !== id));
     setFiltersState((current) =>
       current.categoryId === id ? { ...current, categoryId: "all" } : current,
     );
-    persist(next, tasks);
   }
 
   function addTask(draft: TaskDraft): FieldErrors {
-    const errors = validateTask(draft, categories);
-    if (Object.keys(errors).length > 0) return errors;
-    const next = [
-      { id: crypto.randomUUID(), createdAt: Date.now(), ...taskFieldsFromDraft(draft) },
-      ...tasks,
-    ];
-    setTasks(next);
-    persist(categories, next);
+    const applied = applyDraft(draft);
+    if (!applied.ok) return applied.errors;
+    commitTasks([{ id: crypto.randomUUID(), createdAt: Date.now(), ...applied.fields }, ...tasks]);
     return {};
   }
 
   function updateTask(id: string, draft: TaskDraft): FieldErrors {
-    const errors = validateTask(draft, categories);
-    if (Object.keys(errors).length > 0) return errors;
-    const fields = taskFieldsFromDraft(draft);
-    const next = tasks.map((task) => (task.id === id ? { ...task, ...fields } : task));
-    setTasks(next);
+    const applied = applyDraft(draft);
+    if (!applied.ok) return applied.errors;
+    commitTasks(tasks.map((task) => (task.id === id ? { ...task, ...applied.fields } : task)));
     setEditingId(null);
-    persist(categories, next);
     return {};
   }
 
   function setStatus(id: string, status: Status) {
-    const next = tasks.map((task) => (task.id === id ? { ...task, status } : task));
-    setTasks(next);
-    persist(categories, next);
+    commitTasks(tasks.map((task) => (task.id === id ? { ...task, status } : task)));
   }
 
   function deleteTask(id: string) {
-    const next = tasks.filter((task) => task.id !== id);
-    setTasks(next);
+    commitTasks(tasks.filter((task) => task.id !== id));
     if (editingId === id) setEditingId(null);
-    persist(categories, next);
   }
 
   function setFilters(patch: Partial<Filters>) {

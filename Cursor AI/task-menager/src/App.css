@@ -74,6 +74,10 @@
   align-items: center;
 }
 
+.inline-controls {
+  flex-wrap: nowrap;
+}
+
 .inline-controls input {
   flex: 1 1 12rem;
   width: auto;

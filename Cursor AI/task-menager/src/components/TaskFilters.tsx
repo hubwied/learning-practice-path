@@ -1,5 +1,7 @@
-import { DUE_FILTER_OPTIONS, PRIORITIES, PRIORITY_LABEL, STATUSES, STATUS_LABEL } from "../domain.ts";
+import { PRIORITY_FILTER_CHOICES, STATUS_FILTER_CHOICES } from "../choices.ts";
+import { DUE_FILTER_OPTIONS } from "../domain.ts";
 import type { Category, Filters } from "../types.ts";
+import { ChoiceSelect } from "./ChoiceSelect.tsx";
 
 type TaskFiltersProps = {
   filters: Filters;
@@ -8,6 +10,11 @@ type TaskFiltersProps = {
 };
 
 export function TaskFilters({ filters, categories, onChange }: TaskFiltersProps) {
+  const categoryOptions = [
+    { value: "all", label: "wszystkie" },
+    ...categories.map((category) => ({ value: category.id, label: category.name })),
+  ];
+
   return (
     <section className="panel" aria-labelledby="filters-heading">
       <h2 id="filters-heading">Filtry</h2>
@@ -23,63 +30,40 @@ export function TaskFilters({ filters, categories, onChange }: TaskFiltersProps)
           />
         </div>
         <div>
-          <label htmlFor="filter-status">Status</label>
-          <select
+          <ChoiceSelect
             id="filter-status"
+            label="Status"
             value={filters.status}
-            onChange={(event) => onChange({ status: event.target.value as Filters["status"] })}
-          >
-            <option value="all">wszystkie</option>
-            {STATUSES.map((status) => (
-              <option key={status} value={status}>
-                {STATUS_LABEL[status]}
-              </option>
-            ))}
-          </select>
+            options={STATUS_FILTER_CHOICES}
+            onChange={(status) => onChange({ status })}
+          />
         </div>
         <div>
-          <label htmlFor="filter-priority">Priorytet</label>
-          <select
+          <ChoiceSelect
             id="filter-priority"
+            label="Priorytet"
             value={filters.priority}
-            onChange={(event) => onChange({ priority: event.target.value as Filters["priority"] })}
-          >
-            <option value="all">wszystkie</option>
-            {PRIORITIES.map((priority) => (
-              <option key={priority} value={priority}>
-                {PRIORITY_LABEL[priority]}
-              </option>
-            ))}
-          </select>
+            options={PRIORITY_FILTER_CHOICES}
+            onChange={(priority) => onChange({ priority })}
+          />
         </div>
         <div>
-          <label htmlFor="filter-category">Kategoria</label>
-          <select
+          <ChoiceSelect
             id="filter-category"
+            label="Kategoria"
             value={filters.categoryId}
-            onChange={(event) => onChange({ categoryId: event.target.value })}
-          >
-            <option value="all">wszystkie</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
+            options={categoryOptions}
+            onChange={(categoryId) => onChange({ categoryId })}
+          />
         </div>
         <div>
-          <label htmlFor="filter-due">Termin</label>
-          <select
+          <ChoiceSelect
             id="filter-due"
+            label="Termin"
             value={filters.due}
-            onChange={(event) => onChange({ due: event.target.value as Filters["due"] })}
-          >
-            {DUE_FILTER_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            options={DUE_FILTER_OPTIONS}
+            onChange={(due) => onChange({ due })}
+          />
         </div>
       </div>
     </section>
