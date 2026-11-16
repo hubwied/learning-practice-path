@@ -174,6 +174,21 @@ export function taskFieldsFromDraft(draft: TaskDraft): Omit<Task, "id" | "create
   };
 }
 
+export type TaskCounts = {
+  total: number;
+  active: number;
+  done: number;
+};
+
+export function summarizeTasks(tasks: readonly Task[]): TaskCounts {
+  const done = tasks.filter((task) => task.status === "done").length;
+  return {
+    total: tasks.length,
+    active: tasks.length - done,
+    done,
+  };
+}
+
 export function visibleTasks(tasks: Task[], filters: Filters, today: string): Task[] {
   const query = filters.query.trim().toLocaleLowerCase("pl");
   return tasks

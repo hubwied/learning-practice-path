@@ -1,0 +1,38 @@
+---
+description: Konwencje komponentów React w TypeScript
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Komponenty React
+
+- Nowe komponenty pisz w TypeScript (`.tsx`).
+- Jeden komponent na plik. Nazwa pliku = nazwa komponentu.
+- Komponent zapisuj jako nazwaną funkcję, nie jako anonimowe wyrażenie.
+- Nie używaj typu `any`. Typuj propsy, stan i handlery.
+- Logikę niezwiązaną bezpośrednio z UI (stan, efekty, transformacje danych) wydzielaj do hooków albo funkcji pomocniczych.
+- Nie dodawaj nowych bibliotek bez wyraźnej potrzeby. Najpierw sprawdź, czy wystarczy to, co już jest w projekcie.
+
+```tsx
+// ❌ BAD
+export default (props: any) => {
+  const items = props.tasks.filter((t: any) => !t.done);
+  return <ul>{items.map((t: any) => <li key={t.id}>{t.title}</li>)}</ul>;
+};
+
+// ✅ GOOD
+type TaskListProps = {
+  tasks: Task[];
+};
+
+export function TaskList({ tasks }: TaskListProps) {
+  const openTasks = tasks.filter((task) => !task.done);
+  return (
+    <ul>
+      {openTasks.map((task) => (
+        <li key={task.id}>{task.title}</li>
+      ))}
+    </ul>
+  );
+}
+```

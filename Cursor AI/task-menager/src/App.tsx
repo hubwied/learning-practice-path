@@ -2,6 +2,7 @@ import { CategoryManager } from "./components/CategoryManager.tsx";
 import { TaskFilters } from "./components/TaskFilters.tsx";
 import { TaskForm } from "./components/TaskForm.tsx";
 import { TaskList } from "./components/TaskList.tsx";
+import { TaskSummary } from "./components/TaskSummary.tsx";
 import { useTasks } from "./hooks/useTasks.ts";
 import "./App.css";
 
@@ -39,6 +40,7 @@ export default function App() {
           <span aria-hidden="true"> · </span>
           W trakcie: {inProgressCount}
         </p>
+        <TaskSummary tasks={tasks} />
       </header>
       {notice ? (
         <div className={`notice notice-${notice.kind}`} role="status">
