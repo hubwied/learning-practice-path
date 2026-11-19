@@ -9,9 +9,21 @@
   <body>
     <main class="calculator" aria-label="Kalkulator">
       <h1 class="title">Kalkulator</h1>
+      <ol class="history" id="history" hidden></ol>
       <div class="display" aria-live="polite">
-        <p class="expression" id="expression"></p>
+        <div class="status">
+          <span class="memory-flag" id="memory-flag" hidden>M</span>
+          <p class="expression" id="expression"></p>
+        </div>
         <p class="value" id="display">0</p>
+      </div>
+
+      <div class="memory-keys" role="group" aria-label="Pamięć i ostatni wynik">
+        <button type="button" data-action="ans" class="key key-fn key-memory">ANS</button>
+        <button type="button" data-action="memory-add" class="key key-fn key-memory">M+</button>
+        <button type="button" data-action="memory-subtract" class="key key-fn key-memory">M-</button>
+        <button type="button" data-action="memory-recall" class="key key-fn key-memory">MR</button>
+        <button type="button" data-action="memory-clear" class="key key-fn key-memory">MC</button>
       </div>
 
       <div class="keys" role="group" aria-label="Przyciski kalkulatora">
