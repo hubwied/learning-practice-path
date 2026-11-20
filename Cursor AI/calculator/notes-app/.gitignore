@@ -1,0 +1,4 @@
+notes.json
+notes.json.tmp
+__pycache__/
+.pytest_cache/
